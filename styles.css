@@ -1,0 +1,179 @@
+body {
+    background: red; /* For browsers that do not support gradients */    
+    background: -webkit-linear-gradient(45deg, blue, red); /* For Safari 5.1 to 6.0 */
+    background: -o-linear-gradient(45deg, blue, red); /* For Opera 11.1 to 12.0 */
+    background: -moz-linear-gradient(45deg, blue, red); /* For Firefox 3.6 to 15 */
+    background: linear-gradient(45deg, blue, red); /* Standard syntax (must be last) */
+    font-family: 'Lato', sans-serif;
+    min-height: 100vh;
+    color: white;
+    padding: 0;
+    margin: 0;
+    /*background-color: #eeeeee;*/
+}
+
+#home,
+#stock1,
+#stock2,
+#stock3 {
+    min-height: 100vh;
+}
+
+.content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+/*    position: absolute;
+    top: 50%;
+    left: 50%;*/
+    /*transform: translate(-50%, -50%);*/
+}
+
+#stock1,
+#stock2,
+#stock3 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+/*  position: relative;
+    top: 50%;
+    left: 50%;*/
+}
+
+a {
+    padding: 0;
+    color: white;
+}
+
+h4 {
+    display: inline-block;
+    margin-left: 10px;
+}
+
+h1,
+h4 {
+    margin: 0;
+}
+
+p,
+h1,
+h2,
+h3,
+h4 {
+    font-weight: bold;
+    color: white;
+}
+
+h3 {
+    margin-top: 10px;
+    margin-bottom: 5px;
+}
+
+h5 {
+    display: inline-block;
+}
+
+.container {
+    width: 100%;
+    height: 100vh;
+    display: block;
+    flex-wrap: wrap;
+    margin: 0 auto;
+    background-color: #80b0ff;
+}
+
+.about {
+    width: 100%;
+    height: 100vh;
+    display: block;
+    flex-wrap: wrap;
+    margin: 0 auto;
+    background-color: #b3d0ff;
+}
+
+.img-responsive {
+    max-width: 100%;
+    height: 100%;
+}
+
+.name {
+    text-align: left;
+}
+
+.row {
+    width: 100%;
+    display: block;
+    flex-wrap: wrap;
+    margin: 0;
+    text-align: center;
+}
+
+.title-picture,
+.title-hr {
+    padding-right: 0;
+    padding-left: 0;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.text-right {
+    text-align: right;
+}
+
+.text-uppercase {
+    text-transform: uppercase;
+}
+
+.col-md-1 {
+    width: 8.33%;
+}
+
+.col-md-2 {
+    width: 16.66%;
+}
+
+.col-md-3 {
+    width: 25%;
+}
+
+.col-md-4 {
+    width: 33.33%;
+}
+
+.col-md-5 {
+    width: 41.66%;
+}
+
+.col-md-6 {
+    width: 50%;
+}
+
+.col-md-7 {
+    width: 58.33%;
+}
+
+.col-md-8 {
+    width: 66.66%;
+}
+
+.col-md-9 {
+    width: 75%;
+}
+
+.col-md-10 {
+    width: 83.33%;
+}
+
+.col-md-11 {
+    width: 91.66%;
+}
+
+.col-md-12,
+.col-sm-12 {
+    width: 100%;
+    padding: 0;
+    float: none;
+}
+

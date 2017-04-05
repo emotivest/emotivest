@@ -1,0 +1,50 @@
+.container .col-md-12 {
+	padding-top: 2em;
+}
+
+.nav-list {
+	padding-top: 2%;
+	padding-right: 5%;
+	float: right;
+}
+
+.nav-list li {
+	display: block;
+	float: left;
+	padding-right: 2.5em;
+}
+
+.shauns-work {
+	font-family: 'EB Garamond', serif;
+	letter-spacing: 0.2em;
+	color: #000055;
+	margin-top: 1.5em;
+}
+
+#demos {
+	margin: auto;
+	clear: left;
+}
+
+#demos .owl-carousel .item{
+	height: 17rem;
+	background: none;
+}
+
+.owl-carousel .owl-item img {
+	border-radius: 20px;
+	border: 1px solid #000055;
+	background: white;
+}
+
+a {
+	color: #000055;
+	font-size: large;
+	font-weight: bolder;
+}
+
+.owl-theme .owl-controls .owl-nav [class*=owl] {
+	color: #000055;
+}
+
+
