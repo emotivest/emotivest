@@ -12,6 +12,27 @@ body {
     /*background-color: #eeeeee;*/
 }
 
+
+.navbar {
+    overflow: hidden;
+    background-color: transparent;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 5;
+}
+
+.navbar a {
+    float: right;
+    display: block;
+    color: #f2f2f2;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 17px;
+}
+
+
 #home,
 #stock1,
 #stock2,
@@ -19,14 +40,15 @@ body {
     min-height: 100vh;
 }
 
-.content {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-/*    position: absolute;
-    top: 50%;
-    left: 50%;*/
-    /*transform: translate(-50%, -50%);*/
+#override .content {
+    height: 100vh;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#override article {
+    position: absolute;
+    top: 35%;
 }
 
 #stock1,
@@ -35,9 +57,6 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-/*  position: relative;
-    top: 50%;
-    left: 50%;*/
 }
 
 a {
