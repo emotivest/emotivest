@@ -67,8 +67,9 @@ with open(fName, 'w') as f:
                 print("No more tweets found")
                 break
             for tweet in new_tweets:
-                f.write(jsonpickle.encode(tweet._json, unpicklable=False) +
-                        '\n')
+                f.write(tweet.text+'\n') #this writes just the text from the tweet to the file
+                # f.write(jsonpickle.encode(tweet._json, unpicklable=False) +
+                #         '\n')
             tweetCount += len(new_tweets)
             print("Downloaded {0} tweets".format(tweetCount))
             max_id = new_tweets[-1].id
