@@ -17,15 +17,15 @@ api = tweepy.API(auth)
 
 
 #override tweepy.StreamListener to add logic to on_status
-class MyStreamListener(tweepy.StreamListener):
+# class MyStreamListener(tweepy.StreamListener):
 
-    def on_status(self, status):
-        print(status.text)
+#     def on_status(self, status):
+#         print(status.text)
 
-myStreamListener = MyStreamListener()
-myStream = tweepy.Stream(auth=api.auth, listener=MyStreamListener())
+# myStreamListener = MyStreamListener()
+# myStream = tweepy.Stream(auth=api.auth, listener=MyStreamListener())
 
-myStream.filter(track=['AAPL'])
+# myStream.filter(track=['AAPL'])
 
 
 
@@ -67,8 +67,9 @@ with open(fName, 'w') as f:
                 print("No more tweets found")
                 break
             for tweet in new_tweets:
-                f.write(jsonpickle.encode(tweet._json, unpicklable=False) +
-                        '\n')
+                f.write(tweet.text+', '+str(tweet.created_at)+'\n') #this writes just the text,date from the tweet to the file
+                # f.write(jsonpickle.encode(tweet._json, unpicklable=False) +
+                #         '\n')
             tweetCount += len(new_tweets)
             print("Downloaded {0} tweets".format(tweetCount))
             max_id = new_tweets[-1].id
