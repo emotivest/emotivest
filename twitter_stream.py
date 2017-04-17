@@ -1,4 +1,6 @@
 import tweepy
+import datetime
+import jsonpickle
 
 
 consumer_key = 'mi1e5x0VX7m7Us5DTD9vovsJR'
@@ -31,9 +33,9 @@ api = tweepy.API(auth)
 
 
 # searchQuery
-maxTweets = 1 #number of tweets we want 
+maxTweets = 50000 #number of tweets we want 
 tweetsPerQry = 100  #max the API permits
-fName = 'tweets.txt' #file we will write tweets to
+fName = 'aapl_11-16.csv' #file we will write tweets to
 
 
 # If results from a specific ID onwards are reqd, set since_id to that ID.
@@ -44,6 +46,7 @@ sinceId = None
 # else default to no upper limit, start from the most recent tweet matching the search query.
 max_id = -1
 
+
 tweetCount = 0
 print("Downloading max {0} tweets".format(maxTweets))
 with open(fName, 'w') as f:
@@ -51,25 +54,25 @@ with open(fName, 'w') as f:
         try:
             if (max_id <= 0):
                 if (not sinceId):
-                    new_tweets = api.search(q='$AAPL', lang='en', count=tweetsPerQry)
+                    new_tweets = api.search(q='$AAPL', lang='en', count=tweetsPerQry, since='2017-4-11', until='2017-4-17')
                 else:
                     new_tweets = api.search(q='$AAPL', lang='en', count=tweetsPerQry,
-                                            since_id=sinceId)
+                                            since_id=sinceId, since='2017-4-11', until='2017-4-17')
             else:
                 if (not sinceId):
                     new_tweets = api.search(q='$AAPL', lang='en', count=tweetsPerQry,
-                                            max_id=str(max_id - 1))
+                                            max_id=str(max_id - 1), since='2017-4-11', until='2017-4-17')
                 else:
                     new_tweets = api.search(q='$AAPL', lang='en', count=tweetsPerQry,
                                             max_id=str(max_id - 1),
-                                            since_id=sinceId)
+                                            since_id=sinceId, since='2017-4-11', until='2017-4-17')
             if not new_tweets:
                 print("No more tweets found")
                 break
             for tweet in new_tweets:
-                f.write(tweet.text+', '+str(tweet.created_at)+'\n') #this writes just the text,date from the tweet to the file
-                # f.write(jsonpickle.encode(tweet._json, unpicklable=False) +
-                #         '\n')
+                a = str(tweet.created_at), tweet.text
+                f.write(str(a)+'\n')
+                # f.write(tweet.text+', '+str(tweet.created_at)+'\n') #this writes just the text,date from the tweet to the file
             tweetCount += len(new_tweets)
             print("Downloaded {0} tweets".format(tweetCount))
             max_id = new_tweets[-1].id
@@ -79,3 +82,7 @@ with open(fName, 'w') as f:
             break
 
 print ("Downloaded {0} tweets, Saved to {1}".format(tweetCount, fName))
+
+
+
+
