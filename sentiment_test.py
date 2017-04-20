@@ -7,6 +7,9 @@ from nltk.sentiment import SentimentAnalyzer
 from nltk.sentiment.util import *
 from nltk.sentiment.vader import SentimentIntensityAnalyzer
 from nltk import tokenize
+import csv
+# from nltk.tokenize import word_tokenize
+# from nltk.corpus import stopwords
 # nltk.download()
 
 n_instances = 100
@@ -31,6 +34,7 @@ unigram_feats = sentim_analyzer.unigram_word_feats(all_words_neg, min_freq=4)
 sentim_analyzer.add_feat_extractor(extract_unigram_feats, unigrams=unigram_feats)
 
 training_set = sentim_analyzer.apply_features(training_docs)
+# print ("Training Set = ", training_set)
 test_set = sentim_analyzer.apply_features(testing_docs)
 
 trainer = NaiveBayesClassifier.train
@@ -97,22 +101,26 @@ tricky_sentences = [
 "unitedairlines does not care about asians",
 'Twitter accused of deleting tweets slamming United Airlines']
 
-sentences.extend(tricky_sentences)
-sid = SentimentIntensityAnalyzer()
-for sentence in sentences:
-	print('\n',sentence)
-	ss = sid.polarity_scores(sentence)
-	for k in sorted(ss):
-		print('{0}: {1}, '.format(k, ss[k]), end='')
-	print()
+
+# sentences.extend(tricky_sentences)
+# sid = SentimentIntensityAnalyzer()
+# for sentence in sentences:
+# 	print('\n',sentence)
+# 	ss = sid.polarity_scores(sentence)
+# 	for k in sorted(ss):
+# 		print('{0}: {1}, '.format(k, ss[k]), end='')
+# 	print()
+
+
+print ("Fields = ", subjectivity.fileids())
+# ['plot.tok.gt9.5000', 'quote.tok.gt9.5000']
+print ("\n\nNumber of words = ", len(subjectivity.words()))
+# Number of words =  240576
+print ("Categories = ", subjectivity.categories())
+# Categories =  ['obj', 'subj']
 
 
 
-
-
-import csv
-from nltk.tokenize import word_tokenize
-# from nltk.corpus import stopwords
 
 tweets = []
 with open('tweets/jpm/jpm_11-12_clean.csv', 'r', encoding="ISO-8859-1") as f:
@@ -121,14 +129,40 @@ with open('tweets/jpm/jpm_11-12_clean.csv', 'r', encoding="ISO-8859-1") as f:
 		# print('new row: ', row[1][:-1])
 		tweets.append(row[1][:-1])
 
+
 # sentences.extend(tricky_sentences)
-sid = SentimentIntensityAnalyzer()
-for sentence in tweets:
-	print('\n',sentence)
-	ss = sid.polarity_scores(sentence)
-	for k in sorted(ss):
-		print('{0}: {1}, '.format(k, ss[k]), end='')
-	print()
+def calc_daily_score():
+	sid = SentimentIntensityAnalyzer()
+	counter = 0
+	compound_total = 0
+	for sentence in tweets:
+		print('\n',sentence)
+		ss = sid.polarity_scores(sentence)
+		# print ("SS = ", ss)
+		print ("Compound Value = ", ss["compound"])
+		counter += 1
+		compound_total += ss["compound"]
+		# compound_avg = compound_total / counter
+	daily_score = compound_total / counter
+	return daily_score
+
+
+print ("\nJPM April 11-12 Sentiment = ", calc_daily_score())
+
+
+
+
+	# ss is a dict
+	# SS =  {'neg': 0.0, 'neu': 1.0, 'compound': 0.0, 'pos': 0.0}
+	# for k in sorted(ss):
+	# 	print('{0}: {1}, '.format(k, ss[k]), end='')
+		# 	compound_total += value
+		# counter += 1
+		# print 
+		# print('{0}: {1}, '.format(k, ss[k]), end='')
+	# for k in sorted(ss):
+	# 	print('{0}: {1}, '.format(k, ss[k]), end='')
+	# print()
 
 
 
