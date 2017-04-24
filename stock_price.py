@@ -20,7 +20,3 @@ def get_stock_data(ticker):
 	name = [ticker]
 	final = name+change_list
 	return final
-
-
-
-	
