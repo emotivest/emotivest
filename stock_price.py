@@ -4,7 +4,7 @@ import pandas_datareader.data as web
 import datetime
 from datetime import date, timedelta
 
-
+cdcd
 
 def get_stock_data(ticker):
 	end_date = date.today()
