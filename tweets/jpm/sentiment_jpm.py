@@ -54,7 +54,7 @@ classifier = sentim_analyzer.train(trainer, training_set)
 
 def sentiment():
 	path = "*.csv"
-	daily_sentiment = ['AAPL Sentiment']
+	daily_sentiment = ['JPM Sentiment']
 
 	for file_name in glob.glob(path):
 		tweets = []
@@ -77,6 +77,7 @@ def sentiment():
 		daily_sentiment.append(calc_daily_score())
 
 	return daily_sentiment
+	# print (daily_sentiment)
 
 
 # print ("\nDaily Sentiment = ", sentiment())
