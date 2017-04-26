@@ -55,7 +55,6 @@ classifier = sentim_analyzer.train(trainer, training_set)
 def sentiment():
 	path = "tweets/appl/*.csv"
 	daily_sentiment = ['AAPL Sentiment']
-	sentiment_output = []
 
 	for file_name in glob.glob(path):
 		tweets = []
@@ -63,26 +62,23 @@ def sentiment():
 			spamreader = csv.reader(f)
 			for row in spamreader:
 				tweets.append(row[1][:-1])
-		# sentences.extend(tricky_sentences)
-		def calc_daily_score():
-			sid = SentimentIntensityAnalyzer()
-			counter = 0
-			compound_total = 0
-			for sentence in tweets:
-				ss = sid.polarity_scores(sentence)
-				counter += 1
-				compound_total += ss["compound"]
-			daily_score = compound_total / counter
-			return daily_score
-
-		daily_sentiment.append(calc_daily_score())
-		# sentiment_output = daily_sentiment
-
+		calc = calc_daily_score(tweets)
+		daily_sentiment.append(calc)
 	return daily_sentiment
 
 
-# print ("\nDaily Sentiment = ", sentiment())
-# print (sentiment())
+def calc_daily_score(tweets):
+	sid = SentimentIntensityAnalyzer()
+	counter = 0
+	compound_total = 0
+	for sentence in tweets:
+		ss = sid.polarity_scores(sentence)
+		counter += 1
+		compound_total += ss["compound"]
+	daily_score = round(compound_total / counter, 4)
+	return daily_score
+final = sentiment()
+
 
 
 
