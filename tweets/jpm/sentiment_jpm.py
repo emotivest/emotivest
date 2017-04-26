@@ -44,16 +44,8 @@ classifier = sentim_analyzer.train(trainer, training_set)
 # 	print('{0}: {1}'.format(key, value))
 
 
-# print ("Fields = ", subjectivity.fileids())
-# # ['plot.tok.gt9.5000', 'quote.tok.gt9.5000']
-# print ("\n\nNumber of words = ", len(subjectivity.words()))
-# # Number of words =  240576
-# print ("Categories = ", subjectivity.categories())
-# # Categories =  ['obj', 'subj']
-
-
 def sentiment():
-	path = "*.csv"
+	path = "tweets/jpm/*.csv"
 	daily_sentiment = ['JPM Sentiment']
 
 	for file_name in glob.glob(path):
@@ -62,26 +54,23 @@ def sentiment():
 			spamreader = csv.reader(f)
 			for row in spamreader:
 				tweets.append(row[1][:-1])
-		# sentences.extend(tricky_sentences)
-		def calc_daily_score():
-			sid = SentimentIntensityAnalyzer()
-			counter = 0
-			compound_total = 0
-			for sentence in tweets:
-				ss = sid.polarity_scores(sentence)
-				counter += 1
-				compound_total += ss["compound"]
-			daily_score = compound_total / counter
-			return daily_score
-
-		daily_sentiment.append(calc_daily_score())
-
+		calc = calc_daily_score(tweets)
+		daily_sentiment.append(calc)
 	return daily_sentiment
-	# print (daily_sentiment)
+
+def calc_daily_score(tweets):
+	sid = SentimentIntensityAnalyzer()
+	counter = 0
+	compound_total = 0
+	for sentence in tweets:
+		ss = sid.polarity_scores(sentence)
+		counter += 1
+		compound_total += ss["compound"]
+	daily_score = compound_total / counter
+	return daily_score
 
 
-# print ("\nDaily Sentiment = ", sentiment())
-sentiment()
+final = sentiment()
 
 
 
