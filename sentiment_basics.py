@@ -95,7 +95,7 @@ tricky_sentences = [
 "apple shares plummet 45%",
 "ford earnings rise 2%",
 "unitedairlines does not care about asians",
-"Twitter accused of deleting tweets slamming United Airlines"]
+'Twitter accused of deleting tweets slamming United Airlines']
 
 sentences.extend(tricky_sentences)
 sid = SentimentIntensityAnalyzer()
