@@ -19,7 +19,7 @@ def get_stock_data(ticker, sentiment):
 	pct_change = stock['Percent'].tolist()
 	change_list=[]
 	for i in pct_change[1:]:
-		short = '%.2f' % i
+		short = round(i, 3)
 		change_list.append(short)
 	name = [ticker]
 	final_list = name+change_list
@@ -28,9 +28,6 @@ def get_stock_data(ticker, sentiment):
 	for day in dates:
 		correct = str(day)[:10]
 		date_list.append(correct)
-	# print(len(dates), '=date length')
-	# print(len(sentiment), '=sentiment length')
-	# print(len(final_list), 'returns')
 	stock_dict = {'stock': final_list, 'date_list': date_list, 'sentiment': sentiment}
 	return stock_dict
 
