@@ -46,7 +46,7 @@ classifier = sentim_analyzer.train(trainer, training_set)
 
 def sentiment():
 	path = "tweets/jpm/*.csv"
-	daily_sentiment = ['JPM Sentiment']
+	daily_sentiment = ['JPM_Sentiment']
 
 	for file_name in glob.glob(path):
 		tweets = []
@@ -66,7 +66,7 @@ def calc_daily_score(tweets):
 		ss = sid.polarity_scores(sentence)
 		counter += 1
 		compound_total += ss["compound"]
-	daily_score = compound_total / counter
+	daily_score = round(compound_total / counter, 4)
 	return daily_score
 
 
