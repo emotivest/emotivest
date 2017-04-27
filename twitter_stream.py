@@ -36,7 +36,7 @@ api = tweepy.API(auth)
 maxTweets = 50000 #number of tweets we want 
 tweetsPerQry = 100  #max the API permits
 
-fName = 'jpm_21-27.csv' #file we will write tweets to
+fName = 'jpm_20-21.csv' #file we will write tweets to
 
 
 
@@ -56,17 +56,17 @@ with open(fName, 'w') as f:
         try:
             if (max_id <= 0):
                 if (not sinceId):
-                    new_tweets = api.search(q='$JPM', lang='en', count=tweetsPerQry, since='2017-4-21', until='2017-4-27')
+                    new_tweets = api.search(q='$JPM', lang='en', count=tweetsPerQry, since='2017-4-20', until='2017-4-22')
                 else:
                     new_tweets = api.search(q='$JPM', lang='en', count=tweetsPerQry,
-                                            since_id=sinceId, since='2017-4-21', until='2017-4-27')
+                                            since_id=sinceId, since='2017-4-20', until='2017-4-22')
             else:
                 if (not sinceId):
                     new_tweets = api.search(q='$JPM', lang='en', count=tweetsPerQry,
-                                            max_id=str(max_id - 1), since='2017-4-21', until='2017-4-27')
+                                            max_id=str(max_id - 1), since='2017-4-20', until='2017-4-22')
                 else:
                     new_tweets = api.search(q='$JPM', lang='en', count=tweetsPerQry,
-                                            max_id=str(max_id - 1), since_id=sinceId, since='2017-4-21', until='2017-4-27')
+                                            max_id=str(max_id - 1), since_id=sinceId, since='2017-4-20', until='2017-4-22')
             if not new_tweets:
                 print("No more tweets found")
                 break
