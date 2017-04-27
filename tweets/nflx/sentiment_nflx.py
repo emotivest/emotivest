@@ -44,14 +44,6 @@ classifier = sentim_analyzer.train(trainer, training_set)
 # 	print('{0}: {1}'.format(key, value))
 
 
-# print ("Fields = ", subjectivity.fileids())
-# # ['plot.tok.gt9.5000', 'quote.tok.gt9.5000']
-# print ("\n\nNumber of words = ", len(subjectivity.words()))
-# # Number of words =  240576
-# print ("Categories = ", subjectivity.categories())
-# # Categories =  ['obj', 'subj']
-
-
 def sentiment():
 	path = "tweets/nflx/*.csv"
 	daily_sentiment = ['NFLX_Sentiment']
@@ -74,7 +66,7 @@ def calc_daily_score(tweets):
 		ss = sid.polarity_scores(sentence)
 		counter += 1
 		compound_total += ss["compound"]
-	daily_score = compound_total / counter
+	daily_score = round(compound_total / counter, 4)
 	return daily_score
 
 final = sentiment()

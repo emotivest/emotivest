@@ -19,7 +19,8 @@ $(document).ready(function(){
             dates_only.shift()
             var stockReturns = data['stock']
             var stockSentiment = sentiment['sentiment']
-            console.log(stockSentiment)
+            var ticker = sentiment['sentiment'][0]
+            sentiment['sentiment'][0] = 'Sentiment'
             var chart = c3.generate({
                 bindto: '#'+div.attr('id'),
                 data: {
@@ -28,26 +29,29 @@ $(document).ready(function(){
                         date_with_title,
                         stockReturns,
                         stockSentiment
-                    ],
+                    ],  
                     axes: {
-                        NFLX:'y',
-                        NFLX_Sentiment: 'y2'
+
+                        Sentiment: 'y2'
                     }
+
                 },
                 axis: {
                     y:{
                         label: {
                             text:"Percent Return",
                             position:'inner-middle'
+                        },
+                        tick: {
+                            format: d3.format('.2f')
                         }
                     },
                     y2: {
                         label: {
-                            text: 'second axis',
+                            text: 'Sentiment',
                             position:'inner-middle'
                         },
                         show: true
-                        
                     },
                     x: {
                         type: 'timeseries',
@@ -62,8 +66,15 @@ $(document).ready(function(){
     
     var nflxDiv = $("#nflx_graph");
     var nflxData = $('#nflx_graph').data('returns');
-    createGraph(nflxData, nflxDiv)
+    createGraph(nflxData, nflxDiv);
 
+    var aaplDiv = $("#aapl_graph");
+    var aaplData = $('#aapl_graph').data('returns');
+    createGraph(aaplData, aaplDiv);
+
+    var jpmDiv = $("#jpm_graph");
+    var jpmData = $('#jpm_graph').data('returns');
+    createGraph(jpmData, jpmDiv)
 });
 
 

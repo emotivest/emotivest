@@ -8,10 +8,15 @@ app = Flask(__name__)
 @app.route("/", methods=['GET'])
 def home():
 	nflx = json.dumps(nflx_info)
+	aapl = json.dumps(aapl_info)
+	print(aapl)
+	jpm = json.dumps(jpm_info)
+	print(jpm)
 	return render_template('index.html',
-							aapl_info=aapl_info,
-							jpm_info=jpm_info,
-							nflx_info=nflx)
+							nflx_info=nflx,
+							aapl_info=aapl,
+							jpm_info=jpm
+							)
 
 
 if __name__=="__main__":
