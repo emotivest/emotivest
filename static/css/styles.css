@@ -196,7 +196,14 @@ h5 {
     float: none;
 }
 
+.chart_title{
+    padding-top: 15px;
+    text-decoration: underline;
+    margin-right: auto;
+    margin-left: auto;
+    width: 100%;
+    text-align: center;
+}
 
-
-
+.
 
