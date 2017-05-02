@@ -36,7 +36,9 @@ api = tweepy.API(auth)
 maxTweets = 50000 #number of tweets we want 
 tweetsPerQry = 100  #max the API permits
 
+
 fName = 'aapl_26-2.csv' #file we will write tweets to
+
 
 
 
@@ -56,6 +58,7 @@ with open(fName, 'w') as f:
         try:
             if (max_id <= 0):
                 if (not sinceId):
+
                     new_tweets = api.search(q='$AAPL', lang='en', count=tweetsPerQry, since='2017-4-26', until='2017-5-2')
                 else:
                     new_tweets = api.search(q='$AAPL', lang='en', count=tweetsPerQry,
@@ -67,6 +70,7 @@ with open(fName, 'w') as f:
                 else:
                     new_tweets = api.search(q='$AAPL', lang='en', count=tweetsPerQry,
                                             max_id=str(max_id - 1), since_id=sinceId, since='2017-4-26', until='2017-5-2')
+
             if not new_tweets:
                 print("No more tweets found")
                 break
