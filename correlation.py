@@ -21,5 +21,6 @@ nflx = np.asarray(nflx_info['stock'][1:8])
 aapl_correlation = np.corrcoef(aapl_array, aapl)
 jpm_correlation = np.corrcoef(jpm_array, jpm)
 nflx_correlation = np.corrcoef(nflx_array, nflx)
-print(aapl_correlation, nflx_correlation, jpm_correlation)
+
+
 
