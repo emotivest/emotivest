@@ -1,5 +1,6 @@
 from flask import Flask, render_template
 from stock_price import aapl_info, jpm_info, nflx_info
+from correlation import aapl_correlation, jpm_correlation, nflx_correlation
 import json
 
 app = Flask(__name__)
@@ -15,7 +16,10 @@ def home():
 	return render_template('index.html',
 							nflx_info=nflx,
 							aapl_info=aapl,
-							jpm_info=jpm
+							jpm_info=jpm,
+							aapl_corr=aapl_correlation,
+							nflx_corr=nflx_corr,
+							jpm_corr=jpm_correlation
 							)
 
 
