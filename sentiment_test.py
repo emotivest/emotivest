@@ -84,17 +84,7 @@ def calc_daily_score():
 
 
 
-	# ss is a dict
-	# SS =  {'neg': 0.0, 'neu': 1.0, 'compound': 0.0, 'pos': 0.0}
-	# for k in sorted(ss):
-	# 	print('{0}: {1}, '.format(k, ss[k]), end='')
-		# 	compound_total += value
-		# counter += 1
-		# print 
-		# print('{0}: {1}, '.format(k, ss[k]), end='')
-	# for k in sorted(ss):
-	# 	print('{0}: {1}, '.format(k, ss[k]), end='')
-	# print()
+
 
 
 
