@@ -3,7 +3,6 @@ $(document).ready(function(){
 
 
 // ============================Graph==========================================
-    
     var createGraph = function(sentiment, div){
         require.config({
             baseUrl: '/js',
