@@ -45,36 +45,30 @@
         <!-- Stock1 Page(2) -->
         <div>
             <a class="anchor" name="stock1"></a>
-            <h4 class="chart_title">Stock NFLX Chart and Stats</h4>
-            <div id="stock1" class="col-md-12">
-                <div id="nflx_graph" data-returns="{{ nflx_info }}">
+            <h4 class="chart_title">NFLX Returns/Sentiment Chart</h4>
+            <div id="nflx_graph" data-returns="{{ nflx_info }}">
             </div>
-            </div>
-            <div class= 'correlation'>{{ nflx_corr }}</div>
+            <div class='correlation'>Correlation: {{ nflx_corr }}</div>
         </div>
 
 
         <!-- Stock2 Page(3) -->
         <div>
             <a class="anchor" name="stock2"></a>
-            <h4 class="chart_title">Stock AAPL Chart and Stats</h4>
-            <div id="stock2" class="col-md-12">
+            <h4 class="chart_title">AAPL Returns/Sentiment Chart</h4>
              <div id="aapl_graph" data-returns="{{ aapl_info }}">    
             </div>
-            </div>
-            <div class= 'correlation'>{{ aapl_corr }}</div>
+            <div class='correlation'>Correlation: {{ aapl_corr }}</div>
         </div>
 
 
         <!-- Stock3 Page(4) -->
         <div>
             <a class="anchor" name="stock3"></a>
-            <h4 class="chart_title">Stock JPM Chart and Stats</h4>
-            <div  id="stock3" class="col-md-12">
+            <h4 class="chart_title">JPM Returns/Sentiment Chart</h4>
                 <div id="jpm_graph" data-returns="{{ jpm_info }}">
             </div>
-            </div>
-            <div class= 'correlation'>{{ jpm_corr }}</div>
+            <div class= 'correlation'>Correlation: {{ jpm_corr }}</div>
         </div>
 
 

@@ -51,13 +51,13 @@ body {
     top: 35%;
 }
 
-#stock1,
+/*#stock1,
 #stock2,
 #stock3 {
-    display: flex;
+    display: hidden;
     justify-content: center;
     align-items: center;
-}
+}*/
 
 a {
     padding: 0;
@@ -145,50 +145,6 @@ h5 {
     text-transform: uppercase;
 }
 
-.col-md-1 {
-    width: 8.33%;
-}
-
-.col-md-2 {
-    width: 16.66%;
-}
-
-.col-md-3 {
-    width: 25%;
-}
-
-.col-md-4 {
-    width: 33.33%;
-}
-
-.col-md-5 {
-    width: 41.66%;
-}
-
-.col-md-6 {
-    width: 50%;
-}
-
-.col-md-7 {
-    width: 58.33%;
-}
-
-.col-md-8 {
-    width: 66.66%;
-}
-
-.col-md-9 {
-    width: 75%;
-}
-
-.col-md-10 {
-    width: 83.33%;
-}
-
-.col-md-11 {
-    width: 91.66%;
-}
-
 .col-md-12,
 .col-sm-12 {
     width: 100%;
@@ -205,5 +161,49 @@ h5 {
     text-align: center;
 }
 
-.
+.chart_title{
+    margin-bottom: 20px;
+}
+
+.correlation{
+    text-align: center;
+}
+
+.c3-axis-x-label{
+    color: white;
+}
+
+#nflx_graph,
+#aapl_graph,
+#jpm_graph
+{
+    background-color: #202020;
+    margin-right: 25px;
+    margin-left: 25px; 
+}
+
+.c3-line{
+    stroke-width: 2px;
+}
+
+.c3-legend-item text{
+    stroke: white;
+}
+
+.c3 path, .c3 line, .tick text{ 
+  stroke: white;
+}
+
+.c3-axis-y text {
+   fill: white;
+   font-size:12px;
+}
+
+.c3-axis-y2 text {
+   fill: white;
+   font-size:12px;
+}
+
+
+
 
