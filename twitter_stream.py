@@ -16,8 +16,6 @@ auth.set_access_token(access_token, access_token_secret)
 api = tweepy.API(auth)
 
 
-
-
 #override tweepy.StreamListener to add logic to on_status
 # class MyStreamListener(tweepy.StreamListener):
 
@@ -31,14 +29,12 @@ api = tweepy.API(auth)
 
 
 
-
 # searchQuery
 maxTweets = 50000 #number of tweets we want 
 tweetsPerQry = 100  #max the API permits
 
 
-fName = 'aapl_26-2.csv' #file we will write tweets to
-
+fName = 'nflx_2-4.csv' #file we will write tweets to
 
 
 
@@ -59,17 +55,17 @@ with open(fName, 'w') as f:
             if (max_id <= 0):
                 if (not sinceId):
 
-                    new_tweets = api.search(q='$AAPL', lang='en', count=tweetsPerQry, since='2017-4-26', until='2017-5-2')
+                    new_tweets = api.search(q='$NFLX', lang='en', count=tweetsPerQry, since='2017-5-2', until='2017-5-4')
                 else:
-                    new_tweets = api.search(q='$AAPL', lang='en', count=tweetsPerQry,
-                                            since_id=sinceId, since='2017-4-26', until='2017-5-2')
+                    new_tweets = api.search(q='$NFLX', lang='en', count=tweetsPerQry,
+                                            since_id=sinceId, since='2017-5-2', until='2017-5-4')
             else:
                 if (not sinceId):
-                    new_tweets = api.search(q='$AAPL', lang='en', count=tweetsPerQry,
-                                            max_id=str(max_id - 1), since='2017-4-26', until='2017-5-2')
+                    new_tweets = api.search(q='$NFLX', lang='en', count=tweetsPerQry,
+                                            max_id=str(max_id - 1), since='2017-5-2', until='2017-5-4')
                 else:
-                    new_tweets = api.search(q='$AAPL', lang='en', count=tweetsPerQry,
-                                            max_id=str(max_id - 1), since_id=sinceId, since='2017-4-26', until='2017-5-2')
+                    new_tweets = api.search(q='$NFLX', lang='en', count=tweetsPerQry,
+                                            max_id=str(max_id - 1), since_id=sinceId, since='2017-5-2', until='2017-5-4')
 
             if not new_tweets:
                 print("No more tweets found")
