@@ -206,5 +206,13 @@ h5 {
 }
 
 
+.title{
+    background: none;
+    font-size: 72px;
+}
 
-
+.one,
+.two,
+.three {
+    font-size: 24px;
+}
