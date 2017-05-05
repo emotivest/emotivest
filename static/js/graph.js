@@ -14,8 +14,8 @@ $(document).ready(function(){
         require(["d3", "c3"], function(d3, c3){
             var data = sentiment
             var date_with_title = data['date_list']
-            var dates_only = data['date_list']
-            dates_only.shift()
+            // var dates_only = data['date_list']
+            // dates_only.shift()
             var stockReturns = data['stock']
             var stockSentiment = sentiment['sentiment']
             var ticker = sentiment['sentiment'][0]

@@ -12,8 +12,9 @@ jpm = sentiment_jpm.final
 nflx = sentiment_nflx.final
 
 def get_stock_data(ticker, sentiment):
-	end_date = date.today()
-	start_date = end_date - timedelta(days=13)
+	end_date = datetime.datetime(2017,5,3)
+	start_date = end_date - timedelta(days=22)
+	print("START DATE", start_date)
 	stock = web.DataReader(ticker,'yahoo', start_date, end_date)
 	stock['Percent'] = (stock['Adj Close']-stock['Adj Close'].shift(1))/stock['Adj Close']*100
 	pct_change = stock['Percent'].tolist()
@@ -25,7 +26,7 @@ def get_stock_data(ticker, sentiment):
 	final_list = name+change_list
 	dates = stock.index.values
 	date_list = ['Date']
-	for day in dates:
+	for day in dates[1:]:
 		correct = str(day)[:10]
 		date_list.append(correct)
 	stock_dict = {'stock': final_list, 'date_list': date_list, 'sentiment': sentiment}

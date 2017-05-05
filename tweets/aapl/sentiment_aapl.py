@@ -53,7 +53,9 @@ def sentiment():
 			spamreader = csv.reader(f)
 			for row in spamreader:
 				tweets.append(row[1][:-1])
+		# print('tweets',tweets)
 		calc = calc_daily_score(tweets)
+		# print('calc', calc)
 		daily_sentiment.append(calc)
 	return daily_sentiment
 
