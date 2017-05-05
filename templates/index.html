@@ -33,7 +33,7 @@
 
             <div class="row content col-md-12">
                 <article>
-                    <h1>Emotivest</h1>
+                    <h1 class="title">Emotivest</h1>
                     <p class="one">The purpose of this project is to determine whether the emotion of Twitter tweets is predictive of future stock prices</p>
                     <p class="two">We used machine learning, aided by the Natural Language Toolkit, to interpret and map the sentiment of each stock's respective tweets</p>
                     <p class="three">David Caulfield and Shaun Cox pursued this idea as their group project while at Byte Academy, a Python coding school, in New York, NY</p>
@@ -43,7 +43,7 @@
 
 
         <!-- Stock1 Page(2) -->
-        <div>
+        <div class="graph">
             <a class="anchor" name="stock1"></a>
             <h4 class="chart_title">NFLX Returns/Sentiment Chart</h4>
             <div id="nflx_graph" data-returns="{{ nflx_info }}">
@@ -53,21 +53,19 @@
 
 
         <!-- Stock2 Page(3) -->
-        <div>
+        <div class="graph">
             <a class="anchor" name="stock2"></a>
             <h4 class="chart_title">AAPL Returns/Sentiment Chart</h4>
-             <div id="aapl_graph" data-returns="{{ aapl_info }}">    
-            </div>
+            <div id="aapl_graph" data-returns="{{ aapl_info }}"></div>
             <div class='correlation'>Correlation: {{ aapl_corr }}</div>
         </div>
 
 
         <!-- Stock3 Page(4) -->
-        <div>
+        <div class="graph">
             <a class="anchor" name="stock3"></a>
             <h4 class="chart_title">JPM Returns/Sentiment Chart</h4>
-                <div id="jpm_graph" data-returns="{{ jpm_info }}">
-            </div>
+            <div id="jpm_graph" data-returns="{{ jpm_info }}"></div>
             <div class= 'correlation'>Correlation: {{ jpm_corr }}</div>
         </div>
 
