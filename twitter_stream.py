@@ -34,7 +34,7 @@ maxTweets = 50000 #number of tweets we want
 tweetsPerQry = 100  #max the API permits
 
 
-fName = 'jpm_0501.csv' #file we will write tweets to
+fName = 'nflx_0503-0509.csv' #file we will write tweets to
 
 
 
@@ -55,17 +55,17 @@ with open(fName, 'w') as f:
             if (max_id <= 0):
                 if (not sinceId):
 
-                    new_tweets = api.search(q='$JPM', lang='en', count=tweetsPerQry, since='2017-5-1', until='2017-5-2')
+                    new_tweets = api.search(q='$NFLX', lang='en', count=tweetsPerQry, since='2017-5-3', until='2017-5-10')
                 else:
-                    new_tweets = api.search(q='$JPM', lang='en', count=tweetsPerQry,
-                                            since_id=sinceId, since='2017-5-1', until='2017-5-2')
+                    new_tweets = api.search(q='$NFLX', lang='en', count=tweetsPerQry,
+                                            since_id=sinceId, since='2017-5-3', until='2017-5-10')
             else:
                 if (not sinceId):
-                    new_tweets = api.search(q='$JPM', lang='en', count=tweetsPerQry,
-                                            max_id=str(max_id - 1), since='2017-5-1', until='2017-5-2')
+                    new_tweets = api.search(q='$NFLX', lang='en', count=tweetsPerQry,
+                                            max_id=str(max_id - 1), since='2017-5-3', until='2017-5-10')
                 else:
-                    new_tweets = api.search(q='$JPM', lang='en', count=tweetsPerQry,
-                                            max_id=str(max_id - 1), since_id=sinceId, since='2017-5-1', until='2017-5-2')
+                    new_tweets = api.search(q='$NFLX', lang='en', count=tweetsPerQry,
+                                            max_id=str(max_id - 1), since_id=sinceId, since='2017-5-3', until='2017-5-10')
 
             if not new_tweets:
                 print("No more tweets found")
