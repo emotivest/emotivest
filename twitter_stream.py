@@ -31,10 +31,10 @@ api = tweepy.API(auth)
 
 # searchQuery
 maxTweets = 50000 #number of tweets we want 
-tweetsPerQry = 100  #max the API permits
+tweetsPerQry = 100 #max the API permits
 
 
-fName = 'nflx_0503-0509.csv' #file we will write tweets to
+fName = 'aapl_0509-0514.csv' #file we will write tweets to
 
 
 
@@ -55,17 +55,17 @@ with open(fName, 'w') as f:
             if (max_id <= 0):
                 if (not sinceId):
 
-                    new_tweets = api.search(q='$NFLX', lang='en', count=tweetsPerQry, since='2017-5-3', until='2017-5-10')
+                    new_tweets = api.search(q='$aapl', lang='en', count=tweetsPerQry, since='2017-5-9', until='2017-5-14')
                 else:
-                    new_tweets = api.search(q='$NFLX', lang='en', count=tweetsPerQry,
-                                            since_id=sinceId, since='2017-5-3', until='2017-5-10')
+                    new_tweets = api.search(q='$aapl', lang='en', count=tweetsPerQry,
+                                            since_id=sinceId, since='2017-5-9', until='2017-5-14')
             else:
                 if (not sinceId):
-                    new_tweets = api.search(q='$NFLX', lang='en', count=tweetsPerQry,
-                                            max_id=str(max_id - 1), since='2017-5-3', until='2017-5-10')
+                    new_tweets = api.search(q='$aapl', lang='en', count=tweetsPerQry,
+                                            max_id=str(max_id - 1), since='2017-5-9', until='2017-5-14')
                 else:
-                    new_tweets = api.search(q='$NFLX', lang='en', count=tweetsPerQry,
-                                            max_id=str(max_id - 1), since_id=sinceId, since='2017-5-3', until='2017-5-10')
+                    new_tweets = api.search(q='$aapl', lang='en', count=tweetsPerQry,
+                                            max_id=str(max_id - 1), since_id=sinceId, since='2017-5-9', until='2017-5-14')
 
             if not new_tweets:
                 print("No more tweets found")
