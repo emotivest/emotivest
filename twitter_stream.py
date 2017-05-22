@@ -15,27 +15,23 @@ auth.set_access_token(access_token, access_token_secret)
 # Creation of the actual interface, using authentication
 api = tweepy.API(auth)
 
-
 #override tweepy.StreamListener to add logic to on_status
 # class MyStreamListener(tweepy.StreamListener):
-
 #     def on_status(self, status):
 #         print(status.text)
 
 # myStreamListener = MyStreamListener()
 # myStream = tweepy.Stream(auth=api.auth, listener=MyStreamListener())
-
 # myStream.filter(track=['AAPL'])
 
 
 
 # searchQuery
 maxTweets = 50000 #number of tweets we want 
-tweetsPerQry = 200 #max the API permits
+tweetsPerQry = 100 #max the API permits
 
 
-fName = 'btc_0515-0515.csv' #file we will write tweets to
-
+fName = 'aapl_0514-0520.csv' #file we will write tweets to
 
 
 # If results from a specific ID onwards are reqd, set since_id to that ID.
@@ -55,17 +51,17 @@ with open(fName, 'w') as f:
             if (max_id <= 0):
                 if (not sinceId):
 
-                    new_tweets = api.search(q='#bitcoin', lang='en', count=tweetsPerQry, since='2017-5-15', until='2017-5-16')
+                    new_tweets = api.search(q='$aapl', lang='en', count=tweetsPerQry, since='2017-5-14', until='2017-5-21')
                 else:
-                    new_tweets = api.search(q='#bitcoin', lang='en', count=tweetsPerQry,
-                                            since_id=sinceId, since='2017-5-15', until='2017-5-16')
+                    new_tweets = api.search(q='$aapl', lang='en', count=tweetsPerQry,
+                                            since_id=sinceId, since='2017-5-14', until='2017-5-21')
             else:
                 if (not sinceId):
-                    new_tweets = api.search(q='#bitcoin', lang='en', count=tweetsPerQry,
-                                            max_id=str(max_id - 1), since='2017-5-15', until='2017-5-16')
+                    new_tweets = api.search(q='$aapl', lang='en', count=tweetsPerQry,
+                                            max_id=str(max_id - 1), since='2017-5-14', until='2017-5-21')
                 else:
-                    new_tweets = api.search(q='#bitcoin', lang='en', count=tweetsPerQry,
-                                            max_id=str(max_id - 1), since_id=sinceId, since='2017-5-15', until='2017-5-16')
+                    new_tweets = api.search(q='$aapl', lang='en', count=tweetsPerQry,
+                                            max_id=str(max_id - 1), since_id=sinceId, since='2017-5-14', until='2017-5-21')
 
             if not new_tweets:
                 print("No more tweets found")
